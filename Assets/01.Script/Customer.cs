@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Customer{
     string name;
     bool gender;
@@ -76,4 +77,3 @@ public class Customer{
         evaluation = _evaluation;
     }
 }
-
