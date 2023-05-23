@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class Customer{
+[System.Serializable] public class Customer{
     string name;
     bool gender;
     int favoriteGame; //code
