@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//추후에 마우스 클릭 말고 터치로 무빙 바꾸기!
 public class CameraMove : MonoBehaviour
 {
     Vector2 prePos,nowPos,movePos;
