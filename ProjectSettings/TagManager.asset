@@ -41,11 +41,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: UI
-    uniqueID: 1645106039
-    locked: 0
   - name: BackGround
     uniqueID: 885882031
+    locked: 0
+  - name: UI
+    uniqueID: 1645106039
     locked: 0
   - name: Person
     uniqueID: 3873032461
