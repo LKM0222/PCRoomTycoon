@@ -12,20 +12,30 @@ public class CameraMove : MonoBehaviour
     [SerializeField] float dragSpeed = 30.0f;
 
     public GameObject backGround;
+    public GameObject CameraWindow;
     Vector2 leftTop, rightBottom;
+    Vector2 bounds;
+    Vector2 limitsBounds;
 
+    float xSize, ySize;
+
+
+    Vector2 temp;
     // Start is called before the first frame update
     void Start()
     {
-        float xSize = backGround.GetComponent<BoxCollider2D>().bounds.size.x;
-        float ySize = backGround.GetComponent<BoxCollider2D>().bounds.size.y;
+        xSize = backGround.GetComponent<BoxCollider2D>().bounds.size.x;
+        ySize = backGround.GetComponent<BoxCollider2D>().bounds.size.y;
         Vector2 boxPos = backGround.transform.position;
         leftTop = new Vector2(boxPos.x - (xSize/2), boxPos.y + (ySize/2));
         rightBottom = new Vector2(boxPos.x + (xSize/2) , boxPos.y - (ySize / 2));
 
         print(leftTop + " " + rightBottom);
-    }
 
+        bounds = CameraWindow.GetComponent<BoxCollider2D>().bounds.size;
+        limitsBounds = new Vector2((xSize - bounds.x) / 2, (ySize - bounds.y) / 2);
+    }
+    /*
     // // Update is called once per frame(touch)
     // void Update()
     // {
@@ -53,7 +63,7 @@ public class CameraMove : MonoBehaviour
     //     }
         
     // }
-
+ */
 
     // Update is called once per frame(drag)
     void Update()
@@ -62,21 +72,17 @@ public class CameraMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftAlt)) isAlt = true;
         if (Input.GetKeyUp(KeyCode.LeftAlt)) isAlt = false;
 
-        if(Input.GetMouseButtonDown(0))clickPoint = Input.mousePosition;
+        if(Input.GetMouseButtonDown(0)) clickPoint = Input.mousePosition;
 
         if (Input.GetMouseButton(0))
         {
             if (isAlt)
             {
 				Vector3 pos = Camera.main.ScreenToViewportPoint((Vector2) Input.mousePosition - clickPoint);
-                
                 Vector3 move = pos * (Time.deltaTime * dragSpeed);
 
                 MoveLimit();
-
-                transform.Translate(move);
-
-                
+                transform.Translate(move);                
             }
         }
         
@@ -84,11 +90,8 @@ public class CameraMove : MonoBehaviour
 
     void MoveLimit()
     {
-        Vector2 temp;
-        //temp.x = Mathf.Clamp( transform.position.x , SideXY[ LeftX ] , SideXY[ RightX ] );
-        temp.x = Mathf.Clamp( transform.position.x , leftTop.x, rightBottom.x);
-        //temp.y = Mathf.Clamp( transform.position.y , SideXY[ BottomY ] , SideXY[ TopY ] );
-        temp.y = Mathf.Clamp( transform.position.y, leftTop.y, rightBottom.y);
+        temp.x = Mathf.Clamp(transform.position.x, -limitsBounds.x, limitsBounds.x);
+        temp.y = Mathf.Clamp(transform.position.y, -limitsBounds.y, limitsBounds.y);
         
         transform.position = new Vector3(temp.x, temp.y ,this.transform.position.z);	
     }

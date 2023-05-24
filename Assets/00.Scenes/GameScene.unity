@@ -1155,7 +1155,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1080, y: 1500}
+  m_Size: {x: 1080, y: 1398}
   m_EdgeRadius: 0
 --- !u!1 &507747634
 GameObject:
@@ -1799,6 +1799,7 @@ MonoBehaviour:
   clickPoint: {x: 0, y: 0}
   dragSpeed: 30
   backGround: {fileID: 2082316473}
+  CameraWindow: {fileID: 501859402}
 --- !u!1 &612673946
 GameObject:
   m_ObjectHideFlags: 0
