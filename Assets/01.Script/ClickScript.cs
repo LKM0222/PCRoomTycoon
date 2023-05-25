@@ -19,7 +19,21 @@ public class ClickScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButton(0)){
+        
+    }
+
+    private void OnMouseDown() {
+        Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		RaycastHit2D hit = Physics2D.Raycast(worldPoint,Vector2.zero);
+
+        print(hit.transform.tag);
+    }
+}
+
+/*
+코드저장소~~
+기존update문에 있던 코드 그대로 복사해서 쓰면 됨
+if(Input.GetMouseButton(0)){
             Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			RaycastHit2D hit = Physics2D.Raycast(worldPoint,Vector2.zero);
             //print(hit.transform.gameObject.layer);
@@ -43,5 +57,5 @@ public class ClickScript : MonoBehaviour
             
             
         }
-    }
-}
+
+*/

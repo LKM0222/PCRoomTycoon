@@ -66,11 +66,7 @@ public class CameraMove : MonoBehaviour
         
     // }
  */
-
-    private void OnMouseDrag() {
-        print("drag");
-    }
-    /*
+    
     // Update is called once per frame(drag)
     void Update()
     {
@@ -94,7 +90,7 @@ public class CameraMove : MonoBehaviour
         }
         
     }
-    */
+    
 
     void MoveLimit()
     {
