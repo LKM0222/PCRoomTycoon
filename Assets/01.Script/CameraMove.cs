@@ -24,8 +24,10 @@ public class CameraMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        xSize = backGround.GetComponent<BoxCollider2D>().bounds.size.x;
-        ySize = backGround.GetComponent<BoxCollider2D>().bounds.size.y;
+        //xSize = backGround.GetComponent<BoxCollider2D>().bounds.size.x;
+        //ySize = backGround.GetComponent<BoxCollider2D>().bounds.size.y;
+        xSize = backGround.transform.localScale.x;        
+        ySize = backGround.transform.localScale.y;
         Vector2 boxPos = backGround.transform.position;
         leftTop = new Vector2(boxPos.x - (xSize/2), boxPos.y + (ySize/2));
         rightBottom = new Vector2(boxPos.x + (xSize/2) , boxPos.y - (ySize / 2));
@@ -65,6 +67,10 @@ public class CameraMove : MonoBehaviour
     // }
  */
 
+    private void OnMouseDrag() {
+        print("drag");
+    }
+    /*
     // Update is called once per frame(drag)
     void Update()
     {
@@ -73,9 +79,10 @@ public class CameraMove : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.LeftAlt)) isAlt = false;
 
         if(Input.GetMouseButtonDown(0)) clickPoint = Input.mousePosition;
-
+        
         if (Input.GetMouseButton(0))
         {
+            //왠지 드래그 중인걸 인식해야될거같음... 추후 수정
             if (isAlt)
             {
 				Vector3 pos = Camera.main.ScreenToViewportPoint((Vector2) Input.mousePosition - clickPoint);
@@ -87,6 +94,7 @@ public class CameraMove : MonoBehaviour
         }
         
     }
+    */
 
     void MoveLimit()
     {
@@ -95,4 +103,6 @@ public class CameraMove : MonoBehaviour
         
         transform.position = new Vector3(temp.x, temp.y ,this.transform.position.z);	
     }
+
+    
 }
