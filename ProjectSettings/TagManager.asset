@@ -44,12 +44,12 @@ TagManager:
   - name: BackGround
     uniqueID: 885882031
     locked: 0
-  - name: UI
-    uniqueID: 1645106039
-    locked: 0
   - name: Person
     uniqueID: 3873032461
     locked: 0
   - name: Funiture
     uniqueID: 3651476643
+    locked: 0
+  - name: UI
+    uniqueID: 1645106039
     locked: 0

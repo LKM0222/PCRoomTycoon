@@ -7,7 +7,7 @@ public class CustomerMoving : MonoBehaviour
     [SerializeField] float moveSpeed = 0.5f;
     [SerializeField] bool moveFlag = true;
 
-    [SerializeField] Vector3 target;
+    public Vector3 target;
     
     Customer customer = new Customer("test",true, 10001, 20001, 30001, 160, 4.5f);
     // Start is called before the first frame update
