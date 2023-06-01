@@ -24,8 +24,6 @@ public class CustomerSpawn : MonoBehaviour
 
         if(t > time){
             var customer = Instantiate(customerPrefabs ,this.transform.position,Quaternion.identity);
-            customer.GetComponent<CustomerMoving>().target = 
-                new Vector3(Random.Range(0f,5f), Random.Range(0f,5f), customer.transform.position.z);
             time = Random.Range(10f,15f);
             t = 0f;
         }
